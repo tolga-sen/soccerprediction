@@ -1,2 +1,2 @@
 # soccerprediction
-scrapping and modelling the sport data
+Scrapping and modelling the sport data
