@@ -4,18 +4,23 @@ import numpy as np
 
 PAUL_PATH='/Users/PaulWlodkowski/Documents/PythonWork/\
 SPICED-Work/chromedriver/chromedriver'
-DRIVER = webdriver.Chrome(PAUL_PATH)
+DRIVER = webdriver.Chrome()
 
 def get_stats_from_window(driver, handle_number):
     driver.switch_to.window(handle_number)
     new_link = driver.current_url
-    # game_info = driver.find_element_by_xpath('//td[@id="flashscore_column"]').text
-    # game_info = '-'.join(game_info.split('\n')[0].split()[::2])
-    # print(game_info)
-    game_info = driver.find_elements_by_xpath('//span[@class="tname"]')
-    game_info = '-'.join([i.text for i in game_info])
+    time.sleep(1)
+#    game_info = driver.find_elements_by_xpath('//span[@class="tname"]')
+#    game_info = '-'.join([i.text for i in game_info])
+#    print(f'TESTING!!!:{game_info}\n\n')
+    game_info1 = DRIVER.find_elements_by_xpath('//td[@class="tname-home logo-enable"]')
+    game_info2 = DRIVER.find_elements_by_xpath('//td[@class="tname-away logo-enable"]')
+    #    game_info = '-'.join([i.text for i in game_info])
+    game_info1 = '-'.join([i.text for i in game_info1])
+    game_info2 = '-'.join([i.text for i in game_info2])
+    game_info = game_info1+'-'+game_info2
+    #print(f'TESTING!!!:{game_info3}\n\n')
     print(f'TESTING!!!:{game_info}\n\n')
-
 
     statistics1=new_link[:-7]+"statistics;1"
     time.sleep(2)
@@ -71,9 +76,11 @@ if __name__ == '__main__':
     ELEMENTS2 = DRIVER.find_elements_by_class_name('padl')
 
     for elem in ELEMENTS[:7]:
+#    for l,r in zip(ELEMENTS[:15],ELEMENTS2[:15]):
         time.sleep(2)
         # print(elem, elem.text)
-        DRIVER.execute_script("arguments[0].scrollIntoView();", elem)
+#        DRIVER.execute_script("arguments[0].scrollIntoView();", r)
+#        DRIVER.execute_script("arguments[0].scrollIntoView();", r)
         DRIVER.execute_script("$(arguments[0]).click();", elem)
 
         start_window = DRIVER.window_handles[0]
