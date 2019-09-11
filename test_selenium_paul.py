@@ -2,8 +2,7 @@ from selenium import webdriver
 import time
 import numpy as np
 
-DRIVER = webdriver.Chrome('/Users/PaulWlodkowski/Documents/PythonWork/\
-SPICED-Work/chromedriver/chromedriver')
+DRIVER = webdriver.Chrome()
 
 def get_stats_from_window(driver, handle_number):
     driver.switch_to.window(handle_number)
