@@ -18,7 +18,7 @@ def get_stats_from_window(driver, handle_number):
     #    game_info = '-'.join([i.text for i in game_info])
     game_info1 = '-'.join([i.text for i in game_info1])
     game_info2 = '-'.join([i.text for i in game_info2])
-    game_info = game_info1+'-'+game_info2
+    game_info = game_info1+'_'+game_info2
     #print(f'TESTING!!!:{game_info3}\n\n')
     print(f'TESTING!!!:{game_info}\n\n')
 
