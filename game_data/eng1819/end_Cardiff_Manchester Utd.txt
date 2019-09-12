@@ -1,0 +1,45 @@
+26%
+Ball Possession
+74%
+9
+Goal Attempts
+17
+3
+Shots on Goal
+9
+5
+Shots off Goal
+4
+1
+Blocked Shots
+4
+12
+Free Kicks
+15
+4
+Corner Kicks
+7
+3
+Offsides
+0
+4
+Goalkeeper Saves
+2
+13
+Fouls
+13
+2
+Yellow Cards
+1
+209
+Total Passes
+640
+18
+Tackles
+18
+79
+Attacks
+123
+44
+Dangerous Attacks
+40

@@ -74,6 +74,11 @@ if __name__ == '__main__':
     action = webdriver.common.action_chains.ActionChains(DRIVER)
     ELEMENTS = DRIVER.find_elements_by_class_name('padr')
     ELEMENTS2 = DRIVER.find_elements_by_class_name('padl')
+    showmore = driver.find_element_by_xpath('//table[@class="link-more-games"]')
+    print(elem)
+    actions = ActionChains(driver)
+    actions.click(showmore).perform()
+
 
     for elem in ELEMENTS[:23]:
 #    for elem in ELEMENTS:
