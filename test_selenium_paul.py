@@ -69,13 +69,13 @@ def get_stats_from_window(driver, handle_number):
 
 if __name__ == '__main__':
 
-    DRIVER.get("https://www.soccerstand.com/team/bournemouth/OtpNdwrc/results/")
+    DRIVER.get("https://www.soccerstand.com/team/burnley/z3dmTMMO/results/")
     time.sleep(2)
     action = webdriver.common.action_chains.ActionChains(DRIVER)
     ELEMENTS = DRIVER.find_elements_by_class_name('padr')
     ELEMENTS2 = DRIVER.find_elements_by_class_name('padl')
 
-    for elem in ELEMENTS[:26]:
+    for elem in ELEMENTS[:23]:
 #    for elem in ELEMENTS:
 ##    for elem in ELEMENTS[:29]:
 #    for l,r in zip(ELEMENTS[:15],ELEMENTS2[:15]):

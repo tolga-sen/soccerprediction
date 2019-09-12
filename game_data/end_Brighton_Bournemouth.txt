@@ -48,4 +48,54 @@ Attacks
 79
 55
 Dangerous Attacks
+3750%
+Ball Possession
+50%
+8
+Goal Attempts
+14
+1
+Shots on Goal
+7
+3
+Shots off Goal
+4
+4
+Blocked Shots
+3
+6
+Free Kicks
+11
+4
+Corner Kicks
+1
+1
+Offsides
+0
+2
+Goalkeeper Saves
+1
+10
+Fouls
+6
+1
+Red Cards
+0
+2
+Yellow Cards
+4
+470
+Total Passes
+480
+369
+Completed Passes
+386
+19
+Tackles
+22
+132
+Attacks
+79
+55
+Dangerous Attacks
 37
