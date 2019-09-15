@@ -31,7 +31,7 @@ def get_stats_from_window(driver, handle_number):
         time.sleep(2)
         login_form=driver.find_element_by_xpath('//div[@id="tab-statistics-1-statistic"]')
         statistics1=login_form.text
-        with open(f'game_data/eng1920/half_{game_info}.txt', 'a') as f:
+        with open(f'game_data/eng1819/half_{game_info}.txt', 'a') as f:
             f.write(statistics1)
 
         new_link = driver.current_url
@@ -40,7 +40,7 @@ def get_stats_from_window(driver, handle_number):
         time.sleep(2)
         login_form=driver.find_element_by_xpath('//div[@id="tab-statistics-0-statistic"]')
         statistics2=login_form.text
-        with open(f'game_data/eng1920/endd_{game_info}.txt', 'a') as f:
+        with open(f'game_data/eng1819/endd_{game_info}.txt', 'a') as f:
             f.write(statistics2)
 
         new_link = driver.current_url
@@ -50,7 +50,7 @@ def get_stats_from_window(driver, handle_number):
         time.sleep(2)
         login_form=driver.find_element_by_xpath('//div[@id="summary-content"]')
         goals=login_form.text
-        with open(f'game_data/eng1920/goal_{game_info}.txt', 'a') as f:
+        with open(f'game_data/eng1819/goal_{game_info}.txt', 'a') as f:
             f.write(goals)
 
         new_link = driver.current_url
@@ -62,7 +62,7 @@ def get_stats_from_window(driver, handle_number):
         login_form=driver.find_element_by_xpath('//td[@id="flashscore_column"]')
         info=login_form.text
 #         print(info)
-        with open(f'game_data/eng1920/info_{game_info}.txt', 'a') as f:
+        with open(f'game_data/eng1819/info_{game_info}.txt', 'a') as f:
             f.write(info)
 
     except:
@@ -70,7 +70,7 @@ def get_stats_from_window(driver, handle_number):
 
 if __name__ == '__main__':
 
-    DRIVER.get("https://www.soccerstand.com/soccer/england/premier-league/results/")
+    DRIVER.get("https://www.soccerstand.com/soccer/england/premier-league-2018-2019/results/")
     time.sleep(2)
 
 #   Action and showmore for the previous seasons where there is a button to load previous games !!
