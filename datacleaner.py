@@ -5,28 +5,28 @@ import os
 import itertools
 
 games = []
-for filename in os.listdir('game_data/eng1920'):
+for filename in os.listdir('game_data/eng1819'):
     filename = filename.split('_')
     home_team = filename[1]
     away_team = filename[-1]
     away_team = away_team[:-4]
     if filename[0] == 'half':
         x = filename[1]+'_'+filename[2]
-        half = open("game_data/eng1920/half"+"_"+x, "r")
+        half = open("game_data/eng1819/half"+"_"+x, "r")
         half = half.read()
         half = half.split('\n')
-        end = open("game_data/eng1920/endd"+"_"+x, "r")
+        end = open("game_data/eng1819/endd"+"_"+x, "r")
         end = end.read()
         end = end.split('\n')
 
-        info = open("game_data/eng1920/info"+"_"+x, "r")
+        info = open("game_data/eng1819/info"+"_"+x, "r")
         info = info.read()
         info = info.split('\n')
         time = info[1].split(' ')
         date = time[0]
 
         pattern = '\s+\d\s[^A-Za-z0-9]\s\d'
-        goal = open("game_data/eng1920/goal"+"_"+x, "r")
+        goal = open("game_data/eng1819/goal"+"_"+x, "r")
         goal = goal.read()
         goal = goal.split('\n')
         goals = []
@@ -57,7 +57,6 @@ for filename in os.listdir('game_data/eng1920'):
             triplets2.append(end[i:i+3])
             i += 3
 
-#        print(triplets1,triplets2)
         half = pd.DataFrame(triplets1, columns=['Home1', 'label', 'Away1'])
         stacked = half.set_index('label').stack()
         labels1 = [f"{a} - {b}" for a,b in stacked.index]
@@ -89,18 +88,25 @@ for filename in os.listdir('game_data/eng1920'):
         game['home_goal1']=home_g_half
         game['away_goal1']=away_g_half
         cols = game.select_dtypes(exclude=['float']).columns
+#        print(len(cols), home_team, away_team)
         game[cols] = game[cols].apply(pd.to_numeric, downcast='float', errors='coerce')
         game['Home']=home_team
         game['Away']=away_team
         games.append(game)
-
 gameler = pd.concat(games, sort=False)
 
 gameler=gameler[['Home','Away', 'Ball Possession - Home1', 'Ball Possession - Away1',
-             'Goal Attempts - Home1', 'Goal Attempts - Away1', 'Shots on Goal - Home1', 'Shots on Goal - Away1',
-             'Yellow Cards - Home1', 'Yellow Cards - Away1', 'Total Passes - Home1', 'Total Passes - Away1',
-             'Attacks - Home1', 'Attacks - Away1', 'Dangerous Attacks - Home1', 'Dangerous Attacks - Away1',
-             'home_goal1', 'away_goal1', 'Home_end_goal', 'Away_end_goal', 'Ball Possession - Home_end',
-             'Ball Possession - Away_end', 'Goal Attempts - Home_end', 'Goal Attempts - Away_end',
-             'Shots on Goal - Home_end', 'Shots on Goal - Away_end']]
-gameler
+                 'Goal Attempts - Home1', 'Goal Attempts - Away1',
+                 'Shots on Goal - Home1', 'Shots on Goal - Away1','Corner Kicks - Home1', 'Corner Kicks - Away1',
+                 'Yellow Cards - Home1', 'Yellow Cards - Away1',
+                 'Total Passes - Home1', 'Total Passes - Away1','Attacks - Home1', 'Attacks - Away1',
+                 'Dangerous Attacks - Home1', 'Dangerous Attacks - Away1','home_goal1', 'away_goal1',
+                 'Home_end_goal','Away_end_goal','Ball Possession - Home_end','Ball Possession - Away_end',
+                 'Goal Attempts - Home_end','Goal Attempts - Away_end',
+                 'Shots on Goal - Home_end', 'Shots on Goal - Away_end','Corner Kicks - Home_end', 'Corner Kicks - Away_end',
+                 'Yellow Cards - Home_end','Yellow Cards - Away_end',
+                 'Total Passes - Home_end','Total Passes - Away_end','Attacks - Home_end', 'Attacks - Away_end',
+                 'Dangerous Attacks - Home_end', 'Dangerous Attacks - Away_end'
+                ]]
+
+gameler.to_csv('./eng1819.csv', sep='\t')
