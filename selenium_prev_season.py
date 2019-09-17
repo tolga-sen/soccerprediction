@@ -102,3 +102,4 @@ if __name__ == '__main__':
         DRIVER.switch_to.window(start_window)
 
         assert len(DRIVER.window_handles) == 1
+        #this is a commit change
