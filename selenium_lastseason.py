@@ -3,8 +3,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 import numpy as np
 
-PAUL_PATH='/Users/PaulWlodkowski/Documents/PythonWork/\
-SPICED-Work/chromedriver/chromedriver'
+ADDRESS="???"
+#PAUL_PATH='/Users/PaulWlodkowski/Documents/PythonWork/\
+#SPICED-Work/chromedriver/chromedriver'
 DRIVER = webdriver.Chrome()
 
 def get_stats_from_window(driver, handle_number):
@@ -21,7 +22,7 @@ def get_stats_from_window(driver, handle_number):
     game_info2 = '-'.join([i.text for i in game_info2])
     game_info = game_info1+'_'+game_info2
     #print(f'TESTING!!!:{game_info3}\n\n')
-    print(f'TESTING!!!:{game_info}\n\n')
+    print(f'\n\n\n\nTESTING!!!:{game_info}\n\n')
 
     statistics1=new_link[:-7]+"statistics;1"
     time.sleep(2)
@@ -41,6 +42,7 @@ def get_stats_from_window(driver, handle_number):
         time.sleep(2)
         login_form=driver.find_element_by_xpath('//div[@id="tab-statistics-0-statistic"]')
         statistics2=login_form.text
+        print(statistics2)
         with open(f'game_data/eng1920/endd_{game_info}.txt', 'a') as f:
             f.write(statistics2)
 
@@ -51,6 +53,7 @@ def get_stats_from_window(driver, handle_number):
         time.sleep(2)
         login_form=driver.find_element_by_xpath('//div[@id="summary-content"]')
         goals=login_form.text
+        print(goals)
         with open(f'game_data/eng1920/goal_{game_info}.txt', 'a') as f:
             f.write(goals)
 
@@ -62,7 +65,7 @@ def get_stats_from_window(driver, handle_number):
         time.sleep(2)
         login_form=driver.find_element_by_xpath('//td[@id="flashscore_column"]')
         info=login_form.text
-#         print(info)
+        print(info)
         with open(f'game_data/eng1920/info_{game_info}.txt', 'a') as f:
             f.write(info)
 
@@ -71,7 +74,7 @@ def get_stats_from_window(driver, handle_number):
 
 if __name__ == '__main__':
 
-    DRIVER.get("https://www.soccerstand.com/soccer/england/premier-league/results/")
+    DRIVER.get(ADDRESS)
     time.sleep(2)
 
 #   Action and showmore for the previous seasons where there is a button to load previous games !!
@@ -95,9 +98,9 @@ if __name__ == '__main__':
 
         start_window = DRIVER.window_handles[0]
         current_window = DRIVER.window_handles[-1]
-        print(current_window)
+#        print(current_window)
         get_stats_from_window(DRIVER, current_window)
-        print(f'Successfully wrote data....')
+        print(f'\n\n\n\nSuccessfully wrote data for this game!....\n\n\n\n')
         DRIVER.close() #closes the current window
         DRIVER.switch_to.window(start_window)
 
