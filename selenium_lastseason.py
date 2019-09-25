@@ -3,7 +3,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 import numpy as np
 
-ADDRESS="???"
+ADDRESS="https://www.soccerstand.com/soccer/england/premier-league/results/"
 #PAUL_PATH='/Users/PaulWlodkowski/Documents/PythonWork/\
 #SPICED-Work/chromedriver/chromedriver'
 DRIVER = webdriver.Chrome()
